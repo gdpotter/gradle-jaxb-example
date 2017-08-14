@@ -1,0 +1,13 @@
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" version="2.1">
+  <bindings schemaLocation="seev.031.001.07.xsd">
+    <schemaBindings>
+      <package name="com.gdpotter.sample.iso_20022.seev_031_01_07" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="seev.039.001.07.xsd">
+    <schemaBindings>
+      <package name="com.gdpotter.sample.iso_20022.seev_039_01_07" />
+    </schemaBindings>
+  </bindings>
+</bindings>
+

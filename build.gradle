@@ -20,7 +20,6 @@ task wrapper(type: Wrapper) {
 task genJaxb {
   ext.sourcesDir = "${buildDir}/generated-sources/jaxb"
   ext.classesDir = "${buildDir}/classes/jaxb"
-  ext.schema = "${projectDir}/src/main/resources/seev.031.001.07.xsd"
   outputs.dir classesDir
 
   doLast() {
@@ -31,7 +30,8 @@ task genJaxb {
 
       taskdef name: 'xjc', classname: 'com.sun.tools.xjc.XJCTask', classpath: configurations.jaxb.asPath
 
-      xjc(destdir: sourcesDir, schema: schema, package: 'com.gdpotter.sample.iso_20022.seev_031_01_07') {
+      xjc(destdir: sourcesDir, binding: "${projectDir}/src/main/resources/binding.xml") {
+        schema(dir: "${projectDir}/src/main/resources", includes: '**/*.xsd')
         produces(dir: sourcesDir, includes: '**/*.java')
       }
 
