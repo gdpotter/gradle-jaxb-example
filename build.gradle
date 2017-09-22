@@ -32,6 +32,7 @@ task genJaxb {
 
       xjc(destdir: sourcesDir, binding: "${projectDir}/src/main/resources/binding.xml") {
         schema(dir: "${projectDir}/src/main/resources", includes: '**/*.xsd')
+        arg(value: "-extension")
         produces(dir: sourcesDir, includes: '**/*.java')
       }
 
@@ -56,6 +57,7 @@ task genJaxb {
 dependencies {
   compile(files(genJaxb.classesDir).builtBy(genJaxb))
   jaxb 'com.sun.xml.bind:jaxb-xjc:2.1.7'
+  jaxb "com.migesok:jaxb-java-time-adapters:1.1.3"
 }
 
 compileJava.dependsOn 'genJaxb'
