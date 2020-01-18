@@ -13,10 +13,6 @@ repositories {
   mavenCentral()
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.1'
-}
-
 task genJaxb {
   ext.sourcesDir = "${buildDir}/generated-sources/jaxb"
   ext.classesDir = "${buildDir}/classes/jaxb"
